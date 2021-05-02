@@ -1,0 +1,43 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.form-field {
+  --form-field-width: 30ch;
+
+  background-color: #fff;
+  border: 2px solid;
+  border-radius: var(--border-radius, $border-radius);
+  padding: 0.25em 0.5em;
+  font-family: inherit;
+  color: inherit;
+  // fallback because smaller sizes require zoom on mobile devices
+  font-size: 16px;
+  // capitalised to prevent Sass
+  // thinking it's the Sass max()
+  font-size: Max(16px, 1em);
+  max-width: 100%;
+  width: var(--form-field-width, 30ch);
+
+  &:not(textarea):not(.select--multiple) {
+    line-height: 1;
+    height: 2.25rem;
+  }
+
+  & select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+  }
+}
