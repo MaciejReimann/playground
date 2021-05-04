@@ -49,3 +49,21 @@
     transform: scale(1);
   }
 }
+
+.checkbox {
+  .input__control {
+    border-radius: var(--border-radius);
+  }
+
+  .input__control svg {
+    width: 0.65em;
+
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    transform-origin: bottom left;
+  }
+
+  input:checked + .input__control svg {
+    transform: scale(1);
+  }
+}
