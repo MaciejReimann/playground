@@ -33,6 +33,10 @@ $colors: (
   @return map-get($colors, $key);
 }
 
+@function getSvgColor($color) {
+  @return "%23" + str-slice("#{color($color)}", 2, -1);
+}
+
 $border-radius: 0.25em !default;
 
 :root {
