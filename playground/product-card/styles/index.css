@@ -1,8 +1,13 @@
-/**
- * index.scss
- * - Add any styles you want here!
- */
+:root {
+  --furby-color--white: rgba(255, 255, 255, 255);
+  --furby-color--green: rgba(26, 163, 152, 255);
+  --furby-color--blue: rgba(68, 113, 204, 255);
+  --furby-color-grey--dark: rgba(107, 107, 107, 255);
+  --furby-color-grey: rgba(164, 164, 164, 255);
+  --furby-color-grey--light: rgba(232, 233, 238, 255);
+}
 
 body {
-  background: red;
+  background-color: var(--furby-color--white);
+  font-family: "Saira Semi Condensed", sans-serif;
 }
