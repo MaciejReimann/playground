@@ -2,30 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Homework</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/index.css" />
   </head>
   <body>
-    <div class="product-card margin-2 padding-4 rounded-border">
-      <div class="product-name-and-logo flex padding-top-1">
-        <img class="product-logo square-3" src="svg/apple.svg"/>
-        <p class="product-name font-3 bold align-self-start margin-left-1">iPhone 7</p>
-      </div>
-      <div class="product-image flex flex-centered padding-top-8">
-        <img class="square-30" src="https://www.refurbed.de/files/pi/iphone-7-1544543368.jpg?t=resize&h=600&w=600"/>
-        <div class="discount-info circle-16 flex flex-centered green-background">
-          <p class="discount-info-text font-4 align-self-center white">999 € <span class="dupa font-3 flex flex-centered">sparen</span></p>
+    <div class="container">
+      <div class="product-card">
+        <div class="product-name-and-logo">
+          <img class="product-logo square-3" src="svg/apple.svg"/>
+          <p class="product-name font-3 bold align-self-start margin-left-1">iPhone 7</p>
         </div>
-      </div>
-      <div class="product-price padding-top-8">
-        <p class="new-price font-4 green bold">529.00 €</p>
-        <p class="old-price font-4 dark-grey strikethrough">1528.00 €</p>
-        <p class="price-info font-2 padding-top-1">Gratis Versand, inkl. MwSt.</p>
-      </div>
-      <div class="product-details-link flex flex-centered padding-top-4">
-        <a class="font-3 blue">Details & Auswahl</a>
+        <div class="product-image">
+          <img
+            srcset="https://www.refurbed.de/files/pi/iphone-7-1544543368.jpg?t=resize&h=240&w=240 480w,
+                    https://www.refurbed.de/files/pi/iphone-7-1544543368.jpg?t=resize&h=600&w=600 600w,"
+            sizes="(max-width: 480px) 240px,
+                   (min-width: 600px) 600px"
+            alt="iPhone 7">
+          <div class="discount-info">
+            <p class="discount-info-text">
+              999 € 
+              <span>
+                sparen
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="product-price">
+          <p class="new-price">529.00 €</p>
+          <p class="old-price font-4 dark-grey strikethrough">1528.00 €</p>
+          <p class="price-info">Gratis Versand, inkl. MwSt.</p>
+        </div>
+        <div class="product-details-link">
+          <a>Details & Auswahl</a>
+        </div>
       </div>
     </div>
   </body>
