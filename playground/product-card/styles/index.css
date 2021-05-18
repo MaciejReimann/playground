@@ -8,12 +8,13 @@
 
 :root {
   --furby-color--white: rgba(255, 255, 255, 255);
+  --furby-color--white--dirty: hsl(230, 15%, 98%);
   --furby-color--green: rgba(26, 163, 152, 255);
   --furby-color--blue: rgba(68, 113, 204, 255);
   --furby-color--blue--active: hsl(220, 80%, 53%);
-  --furby-color-grey--dark: rgba(107, 107, 107, 255);
-  --furby-color-grey: rgba(164, 164, 164, 255);
-  --furby-color-grey--light: rgba(232, 233, 238, 255);
+  --furby-color--grey--dark: rgba(111, 111, 111, 255);
+  --furby-color--grey: rgba(156, 156, 156, 255);
+  --furby-color--grey--light: rgba(233, 234, 238, 255);
 
   font-family: "Saira Semi Condensed", sans-serif;
   --furby-font--regular: 400;
@@ -29,6 +30,7 @@
   --furby-spacing-s5: 24px;
   --furby-spacing-s6: 32px;
 
+  --furby-image-size: 180px;
   --furby-card--max-width: 670px;
 }
 
@@ -36,27 +38,30 @@ html,
 body {
   width: 100vw;
   min-height: 100vh;
+  background-color: var(--furby-color--white--dirty);
 }
 
 .products-container {
   width: 100%;
-  background-color: var(--furby-color--white);
 }
 
 .product-card {
   margin: var(--furby-spacing-s4);
   padding: var(--furby-spacing-s5);
 
-  border: 2px solid var(--furby-color-grey--light);
+  border: 2px solid var(--furby-color--grey--light);
   border-radius: var(--furby-spacing-s2);
 
   max-width: var(--furby-card--max-width);
   display: flex;
   flex-direction: column;
+
+  background-color: var(--furby-color--white);
 }
 
 .product-name-and-logo {
   display: flex;
+  align-items: center;
   padding-top: var(--furby-spacing-s1);
 }
 
@@ -79,14 +84,13 @@ body {
 
 .product-image {
   position: relative;
-  width: 100%;
-
   display: flex;
   justify-content: center;
 }
 
 .product-image img {
-  width: 180px;
+  width: var(--furby-image-size);
+  height: var(--furby-image-size);
 }
 
 .discount-info {
@@ -118,7 +122,7 @@ body {
   font-size: var(--furby-font--md);
   display: flex;
   justify-content: center;
-  margin-top: -0.5rem;
+  margin-top: -0.75rem;
 }
 
 .product-price {
@@ -142,6 +146,7 @@ body {
 
 .price-info {
   font-size: var(--furby-font--sm);
+  color: var(--furby-color--grey);
 }
 
 .product-details-link {
@@ -155,7 +160,12 @@ body {
 }
 
 .product-details-link .arrow {
-  margin-left: var(--furby-spacing-s1);
+  font-size: var(--furby-font--lg);
+  margin-top: 2px;
+}
+
+.product-details-link a {
+  text-decoration: none;
 }
 
 .product-details-link a:visited {
