@@ -10,6 +10,7 @@
   --furby-color--white: rgba(255, 255, 255, 255);
   --furby-color--green: rgba(26, 163, 152, 255);
   --furby-color--blue: rgba(68, 113, 204, 255);
+  --furby-color--blue--active: hsl(220, 80%, 53%);
   --furby-color-grey--dark: rgba(107, 107, 107, 255);
   --furby-color-grey: rgba(164, 164, 164, 255);
   --furby-color-grey--light: rgba(232, 233, 238, 255);
@@ -37,7 +38,7 @@ body {
   min-height: 100vh;
 }
 
-.container {
+.products-container {
   width: 100%;
   background-color: var(--furby-color--white);
 }
@@ -48,6 +49,10 @@ body {
 
   border: 2px solid var(--furby-color-grey--light);
   border-radius: var(--furby-spacing-s2);
+
+  max-width: var(--furby-card--max-width);
+  display: flex;
+  flex-direction: column;
 }
 
 .product-name-and-logo {
@@ -63,13 +68,18 @@ body {
 .product-name {
   margin-left: var(--furby-spacing-s1);
   font-weight: var(--furby-font--bold);
-  /* align-self: flex-start; */
+}
+
+.product-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: var(--furby-spacing-s6);
 }
 
 .product-image {
   position: relative;
   width: 100%;
-  padding-top: var(--furby-spacing-s6);
 
   display: flex;
   justify-content: center;
@@ -86,8 +96,10 @@ body {
   clip-path: circle();
 
   position: absolute;
-  bottom: -64px;
-  right: 0;
+  bottom: -30%;
+  right: 0%;
+  margin-right: 10vw;
+
   transform: rotate(15deg);
 
   display: flex;
@@ -139,9 +151,69 @@ body {
   justify-content: center;
   text-transform: uppercase;
   color: var(--furby-color--blue);
+  white-space: nowrap;
 }
 
-.product-details-link::after {
-  content: ">";
+.product-details-link .arrow {
   margin-left: var(--furby-spacing-s1);
+}
+
+.product-details-link a:visited {
+  color: var(--furby-color--blue);
+}
+
+.product-details-link a:hover {
+  color: var(--furby-color--blue--active);
+  font-weight: var(--furby-font--bold);
+}
+
+@media screen and (max-width: 420px) {
+  .discount-info {
+    margin-right: 5vw;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .discount-info {
+    margin-right: 2vw;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .product-card {
+    display: inline-block;
+  }
+
+  .product-name-and-logo {
+    padding-top: 0;
+  }
+
+  .product-card-content {
+    padding-top: var(--furby-spacing-s4);
+    flex-direction: row;
+  }
+
+  .product-image {
+    width: auto;
+    flex-wrap: wrap;
+  }
+
+  .discount-info {
+    top: -32px;
+    right: -36px;
+    margin-right: 0;
+    transform: scale(0.75) rotate(15deg);
+  }
+
+  .product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: var(--furby-spacing-s5);
+    margin-left: var(--furby-spacing-s5);
+  }
+
+  .product-price {
+    padding-top: 0;
+  }
 }
