@@ -1,0 +1,48 @@
+/*
+ * Normally when you assign a value to a variable, if that variable already had a value, 
+ * its old value is overwritten. But if you’re writing a Sass library, 
+ * you might want to allow your users to configure your library’s variables before you use them to generate CSS.
+ * To make this possible, Sass provides the !default flag. This assigns a value to a variable only if that variable 
+ * isn’t defined or its value is null. Otherwise, the existing value will be used.
+*/
+
+$color-primary: #041db1 !default;
+$color-error: #da1b22 !default;
+$color-background: mix(#fff, $color-primary, 95%) !default;
+$color-text: scale-color($color-background, $lightness: -65%) !default;
+$color-default: scale-color(
+  $color-background,
+  $lightness: -40%,
+  $saturation: -50%
+) !default;
+$color-disabled-border: scale-color($color-default, $lightness: 40%);
+$color-disabled-background: scale-color($color-default, $lightness: 75%);
+
+$colors: (
+  "primary": $color-primary,
+  "error": $color-error,
+  "background": $color-background,
+  "default": $color-default,
+  "disabled-border": $color-disabled-border,
+  "disabled-background": $color-disabled-background,
+  "text": $color-text,
+  "white": #fff,
+);
+
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+@function getSvgColor($color) {
+  @return "%23" + str-slice("#{color($color)}", 2, -1);
+}
+
+$border-radius: 0.25em !default;
+
+:root {
+  @each $key, $color in $colors {
+    --color-#{key}: #{$color};
+  }
+
+  --border-radius: #{$border-radius};
+}
