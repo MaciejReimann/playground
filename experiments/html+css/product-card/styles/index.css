@@ -1,0 +1,229 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --furby-color--white: rgba(255, 255, 255, 255);
+  --furby-color--white--dirty: hsl(230, 15%, 98%);
+  --furby-color--green: rgba(26, 163, 152, 255);
+  --furby-color--blue: rgba(68, 113, 204, 255);
+  --furby-color--blue--active: hsl(220, 80%, 53%);
+  --furby-color--grey--dark: rgba(111, 111, 111, 255);
+  --furby-color--grey: rgba(156, 156, 156, 255);
+  --furby-color--grey--light: rgba(233, 234, 238, 255);
+
+  font-family: "Saira Semi Condensed", sans-serif;
+  --furby-font--regular: 400;
+  --furby-font--bold: 600;
+  --furby-font--sm: 12px;
+  --furby-font--md: 16px;
+  --furby-font--lg: 24px;
+
+  --furby-spacing-s1: 4px;
+  --furby-spacing-s2: 8px;
+  --furby-spacing-s3: 12px;
+  --furby-spacing-s4: 16px;
+  --furby-spacing-s5: 24px;
+  --furby-spacing-s6: 32px;
+
+  --furby-image-size: 180px;
+  --furby-card--max-width: 670px;
+}
+
+html,
+body {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--furby-color--white--dirty);
+}
+
+.products-container {
+  width: 100%;
+}
+
+.product-card {
+  margin: var(--furby-spacing-s4);
+  padding: var(--furby-spacing-s5);
+
+  border: 2px solid var(--furby-color--grey--light);
+  border-radius: var(--furby-spacing-s2);
+
+  max-width: var(--furby-card--max-width);
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--furby-color--white);
+}
+
+.product-name-and-logo {
+  display: flex;
+  align-items: center;
+  padding-top: var(--furby-spacing-s1);
+}
+
+.product-logo {
+  width: var(--furby-spacing-s5);
+  height: var(--furby-spacing-s5);
+}
+
+.product-name {
+  margin-left: var(--furby-spacing-s1);
+  font-weight: var(--furby-font--bold);
+}
+
+.product-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: var(--furby-spacing-s6);
+}
+
+.product-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.product-image img {
+  width: var(--furby-image-size);
+  height: var(--furby-image-size);
+}
+
+.discount-info {
+  width: 96px;
+  height: 96px;
+  shape-outside: circle();
+  clip-path: circle();
+
+  position: absolute;
+  bottom: -30%;
+  right: 0%;
+  margin-right: 10vw;
+
+  transform: rotate(15deg);
+
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--furby-color--green);
+}
+
+.discount-info-text {
+  font-size: var(--furby-font--lg);
+  color: var(--furby-color--white);
+  align-self: center;
+}
+
+.discount-info-text span {
+  font-size: var(--furby-font--md);
+  display: flex;
+  justify-content: center;
+  margin-top: -0.75rem;
+}
+
+.product-price {
+  padding-top: var(--furby-spacing-s6);
+}
+
+.new-price {
+  font-size: var(--furby-font--lg);
+  line-height: var(--furby-font--lg);
+  font-weight: var(--furby-font--bold);
+  color: var(--furby-color--green);
+}
+
+.old-price {
+  padding-top: 2px;
+  font-size: var(--furby-font--lg);
+  line-height: var(--furby-font--lg);
+  text-decoration: line-through;
+  color: var(--furby-color--grey--dark);
+}
+
+.price-info {
+  font-size: var(--furby-font--sm);
+  color: var(--furby-color--grey);
+}
+
+.product-details-link {
+  font-size: var(--furby-font--md);
+  padding-top: var(--furby-spacing-s6);
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  color: var(--furby-color--blue);
+  white-space: nowrap;
+}
+
+.product-details-link .arrow {
+  font-size: var(--furby-font--lg);
+  margin-top: 2px;
+}
+
+.product-details-link a {
+  text-decoration: none;
+}
+
+.product-details-link a:visited {
+  color: var(--furby-color--blue);
+}
+
+.product-details-link a:hover {
+  color: var(--furby-color--blue--active);
+  font-weight: var(--furby-font--bold);
+}
+
+@media screen and (max-width: 420px) {
+  .discount-info {
+    margin-right: 5vw;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .discount-info {
+    margin-right: 2vw;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .product-card {
+    display: inline-block;
+  }
+
+  .product-name-and-logo {
+    padding-top: 0;
+  }
+
+  .product-card-content {
+    padding-top: var(--furby-spacing-s4);
+    flex-direction: row;
+  }
+
+  .product-image {
+    width: auto;
+    flex-wrap: wrap;
+  }
+
+  .discount-info {
+    top: -32px;
+    right: -36px;
+    margin-right: 0;
+    transform: scale(0.75) rotate(15deg);
+  }
+
+  .product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: var(--furby-spacing-s5);
+    margin-left: var(--furby-spacing-s5);
+  }
+
+  .product-price {
+    padding-top: 0;
+  }
+}
