@@ -1,12 +1,12 @@
 // https://www.freecodecamp.org/learn/coding-interview-prep/data-structures/create-a-queue-class
-// they follow the FIFO (First-In First-Out) principle - only the element at the front of the queue is allowed to be removed.
+// they follow the FIFO (First-In First-Out) principle - only the item at the front of the queue is allowed to be removed.
 // we want to limit the amount of control we have over our queues - that's why Queue instead of an Array
 
 export function Queue() {
     var collection = []
 
-    this.enqueue = function (element) {
-        collection.push(element)
+    this.enqueue = function (item) {
+        collection.push(item)
     }
 
     this.dequeue = function () {
